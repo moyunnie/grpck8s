@@ -11,6 +11,9 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.3.0 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/mattn/go-sqlite3 v1.14.16 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	go.etcd.io/etcd v3.3.27+incompatible // indirect
 	go.uber.org/atomic v1.7.0 // indirect
@@ -22,4 +25,6 @@ require (
 	google.golang.org/genproto v0.0.0-20221114212237-e4508ebdbee1 // indirect
 	google.golang.org/grpc v1.50.1 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
+	gorm.io/driver/sqlite v1.4.3 // indirect
+	gorm.io/gorm v1.24.1 // indirect
 )

@@ -1,23 +1,13 @@
 package main
 
 import (
+	"awesomeProject5/model"
 	"awesomeProject5/proto"
-	"context"
 	"fmt"
 	"google.golang.org/grpc"
 	"net"
 )
 
-type server struct {
-	proto.UnimplementedUserInfoServer
-}
-
-func (s *server) Userinfo(context.Context, *proto.UserRequest) (*proto.UserResponse, error) {
-	return &proto.UserResponse{
-		Msg:  "msg 响应码",
-		Code: "200",
-	}, nil
-}
 func main() {
 	listen, err := net.Listen("tcp", ":8001")
 	if err != nil {
@@ -25,7 +15,8 @@ func main() {
 		return
 	}
 	s := grpc.NewServer()
-	proto.RegisterUserInfoServer(s, &server{})
+	//proto.RegisterUserInfoServer(s, &Server{})
+	proto.RegisterUserInfoServer(s, &model.Server{})
 	//reflection.Register(s)
 	defer func() {
 		s.Stop()
