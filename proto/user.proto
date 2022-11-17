@@ -1,0 +1,14 @@
+syntax = "proto3";
+option go_package="/proto";
+package Business;
+service UserInfo {
+  rpc Userinfo (UserRequest) returns (UserResponse);
+}
+message UserResponse {
+  string Msg = 1;
+  string Code = 2;
+}
+message UserRequest {
+  string Username = 1;
+  string Password = 2;
+}
