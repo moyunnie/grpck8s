@@ -1,1 +1,5 @@
-package waf
+package main
+
+func main() {
+
+}
