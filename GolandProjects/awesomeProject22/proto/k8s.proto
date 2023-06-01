@@ -1,0 +1,81 @@
+syntax = "proto3";
+option go_package = "./;proto";
+
+
+service K8sService {
+    rpc ListPods(ListPodsRequest) returns (ListPodsResponse);
+    rpc CreatePod(CreatePodRequest) returns (CreatePodResponse);
+    rpc DeletePod(DeletePodRequest) returns (DeletePodResponse);
+    rpc UpdatePod(UpdatePodRequest) returns (UpdatePodResponse);
+
+
+    rpc ListNameSpace(ListNameSpaceRequest) returns (ListNameSpaceResponse);
+}
+
+
+message Page {
+    uint32 page = 1;
+    uint32 page_size = 2;
+}
+
+
+message ListNameSpaceRequest {
+    Page Page = 1;
+}
+
+message ListNameSpaceResponse{
+    repeated ListNameSpace ListNameSpace = 1;
+}
+
+message ListNameSpace{
+    string NameSpace = 1;
+    string Label = 2;
+    string Status = 3;
+    string Create_time = 4;
+}
+
+
+
+
+
+
+
+
+
+
+message ListPodsRequest {
+    // 你可以在这里添加过滤器或其他查询参数
+    Page Page = 1;
+}
+
+message ListPodsResponse {
+    repeated Pod pods = 1;
+}
+
+message CreatePodRequest {
+    Pod pod = 1;
+}
+
+message CreatePodResponse {
+    Pod pod = 1;
+}
+
+message DeletePodRequest {
+    string name = 1; // 删除Pod的名称
+}
+
+message DeletePodResponse {}
+
+message UpdatePodRequest {
+    Pod pod = 1;
+}
+
+message UpdatePodResponse {
+    Pod pod = 1;
+}
+
+message Pod {
+    string name = 1;
+    string namespace = 2;
+    // 其他的Pod属性也可以在这里添加
+}
